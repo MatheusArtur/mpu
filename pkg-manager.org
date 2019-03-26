@@ -13,11 +13,11 @@
 #+CREATOR: Emacs 26.1 (Org mode 9.1.9)
 
 
-* TODO Info
+* Info
   A fully functional package manager written in python.
 
 ** Development
-- [[./docs/todo.org][Todo List]]
+- [[./docs/todo.org][TODO LIST]]
 
 * Contract
 - Development using python3 language

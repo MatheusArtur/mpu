@@ -14,8 +14,7 @@
 
 
 * TODO Package manager
-  DEADLINE: <2019-03-29 Fri>
-
+- DEADLINE: <2019-03-29 Fri>
 - [ ] Package managment
   - [ ] Main function arguments for install, remove, clean, update
   - [ ] Install resolving algorithm
@@ -31,8 +30,7 @@
   - [ ] Final readme
     - [ ] Motivation
 * TODO Package hosting
-  DEADLINE: <2019-03-31 Sun>
-
+-  DEADLINE: <2019-03-31 Sun>
 - [ ] Manifest hosting
    - [ ] Github institution and repository
    - [ ] Define manifest syntax
