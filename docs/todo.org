@@ -1,0 +1,41 @@
+#+OPTIONS: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline
+#+OPTIONS: author:t broken-links:nil c:nil creator:nil
+#+OPTIONS: d:(not "LOGBOOK") date:t e:t email:nil f:t inline:t num:t
+#+OPTIONS: p:nil pri:nil prop:nil stat:t tags:t tasks:t tex:t
+#+OPTIONS: timestamp:t title:t toc:t todo:t |:t
+#+TITLE: Todo List
+#+DATE: <2019-03-26 Tue>
+#+AUTHOR:
+#+EMAIL: macc@ic.ufal.br
+#+LANGUAGE: en
+#+SELECT_TAGS: export
+#+EXCLUDE_TAGS: noexport
+#+CREATOR: Emacs 26.1 (Org mode 9.1.9)
+
+
+* TODO Package manager
+  DEADLINE: <2019-03-29 Fri>
+
+- [ ] Package managment
+  - [ ] Main function arguments for install, remove, clean, update
+  - [ ] Install resolving algorithm
+  - [ ] Orphan package removing algorithm
+  - [ ] Name the package manager
+- [ ] Documentation of algorithms
+  - [ ] Base test case scenario for install
+  - [ ] Conflict case scenario for install
+  - [ ] Orphan packages removal scenario
+- [ ] Others
+  - [ ] Name the project
+  - [ ] License
+  - [ ] Final readme
+    - [ ] Motivation
+* TODO Package hosting
+  DEADLINE: <2019-03-31 Sun>
+
+- [ ] Manifest hosting
+   - [ ] Github institution and repository
+   - [ ] Define manifest syntax
+- [ ] Binary hosting
+   - [ ] Gitlab repository for hosting
+   - [ ] 60 packages in the official repository
