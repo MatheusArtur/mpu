@@ -15,25 +15,28 @@
 
 * TODO Package manager
 - DEADLINE: <2019-03-29 Fri>
-- [ ] Package managment
-  - [ ] Main function arguments for install, remove, clean, update
+- [-] Package managment [1/7]
+  - [X] Main function
+  - [ ] Graph generating algorithm from manifest files
   - [ ] Install resolving algorithm
+  - [ ] Safe removal package algorithm
   - [ ] Orphan package removing algorithm
-  - [ ] Name the package manager
-- [ ] Documentation of algorithms
+  - [ ] Sync function to update manifests
+  - [ ] Upgrade module to map older packages and update to newer versions
+- [ ] Documentation of algorithms [0/3]
   - [ ] Base test case scenario for install
   - [ ] Conflict case scenario for install
   - [ ] Orphan packages removal scenario
-- [ ] Others
+- [ ] Others - [0/3]
   - [ ] Name the project
   - [ ] License
   - [ ] Final readme
-    - [ ] Motivation
+
 * TODO Package hosting
--  DEADLINE: <2019-03-31 Sun>
+- DEADLINE: <2019-03-31 Sun>
 - [ ] Manifest hosting
-   - [ ] Github institution and repository
-   - [ ] Define manifest syntax
+  - [ ] Github institution and repository
+  - [ ] Define manifest syntax
 - [ ] Binary hosting
-   - [ ] Gitlab repository for hosting
-   - [ ] 60 packages in the official repository
+  - [ ] Gitlab repository for hosting
+  - [ ] minimum of 60 packages in the official repository
