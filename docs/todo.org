@@ -18,6 +18,7 @@
 - [-] Package managment [1/7]
   - [X] Main function
   - [ ] Graph generating algorithm from manifest files
+  - [X] Function to traverse folders and find manifest files
   - [ ] Install resolving algorithm
   - [ ] Safe removal package algorithm
   - [ ] Orphan package removing algorithm
