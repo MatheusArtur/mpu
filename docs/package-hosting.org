@@ -11,25 +11,6 @@
 #+EXCLUDE_TAGS: noexport
 #+CREATOR: Emacs 26.1 (Org mode 9.1.9)
 
-* Adding a repository 
-  
-  You can use mpu with your own packages,
-  at =~/.mpu/config/my-repository.conf=, add your repo with the following 
-  syntax:
-  #+BEGIN_EXAMPLE conf
-    NAME{
-	    my-repository-name
-    }
-
-    MANIFEST{
-	    http://www.my-manifest-website.com/manifest.git
-    }
-
-    BINHOST{
-	    http://www.my-binhost-website.com/packages/
-    }
-  #+END_EXAMPLE
-  
 * Manifest file
   Manifest is a text file that guides the package manager dealing with dependencies.
 ** Syntax

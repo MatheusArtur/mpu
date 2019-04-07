@@ -14,7 +14,7 @@
 # with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import sys
-
+from update import *
 def main(args=None,packages=None):
     if args is None and packages is None:
         args = sys.argv[1:2]
@@ -33,7 +33,7 @@ def main(args=None,packages=None):
         # search for orphan packages.
         print("Clean")
     elif "update" in args:
-        # TODO: A module to sync the system with the manifest repository.
+        sync()
         print("Update manifests")
     elif "upgrade" in args:
         # TODO: A module to map the system packages oudated and upgrade them
