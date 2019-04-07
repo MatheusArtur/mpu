@@ -21,10 +21,14 @@ import os, errno, sys
 home = str(Path.home())
 manifest_path = str(home)+"/.mpu/manifests/"
 manifest_repository = "https://gitlab.com/mpu-pkg-manager/mpu-manifests"
-log_file= str(home)+"/.mpu/log/update.log"
+log_path= str(home)+"/.mpu/log/"
+log_file= str(log_path)+"update.log"
 
 def sync():
     
+    if os.path.exists(str(log_path) == False):
+        os.system("mkdir " +str(log_path))
+        
     if os.path.exists( str(manifest_path)+".git") == False:
         sys.stdout.write('Initial repository sync, this might take a while...\n')
         os.system("git clone --quiet " +str(manifest_repository) + " " +str(manifest_path))
