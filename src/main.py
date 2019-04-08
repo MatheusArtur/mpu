@@ -15,6 +15,9 @@
 
 import sys
 from update import *
+from install import *
+
+
 def main(args=None,packages=None):
     if args is None and packages is None:
         args = sys.argv[1:2]
@@ -24,6 +27,7 @@ def main(args=None,packages=None):
         # TODO: Install and Resolver modules, and pass "packages" list as
         # an argument to install.
         # TODO: An upgrade warning for older local-key.
+        install_packages(packages)
         print("Install a package!")
     elif "delete" in args:
         # TODO: Package and local-package removing function.
