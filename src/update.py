@@ -26,7 +26,7 @@ log_file= str(log_path)+"update.log"
 
 def sync():
     
-    if os.path.exists(str(log_path) == False):
+    if os.path.exists(str(log_path)) == False:
         os.system("mkdir " +str(log_path))
         
     if os.path.exists( str(manifest_path)+".git") == False:
