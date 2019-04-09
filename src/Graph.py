@@ -55,11 +55,11 @@ class Graph:
 					self.topological_util(visited_list, neighbour, output)
 				except:
 					pass
-			output.insert(0, vertex)
-			
-	# Function to create the 'visited_list' to avoid cycles and start 
+			output.append(vertex)
+
+	# Function to create the 'visited_list' to avoid cycles and start
 	# the topological_sort for the given vertex
-	def topological_sort(self, vertex):		
+	def topological_sort(self, vertex):
 		output = []
 		visited_list = defaultdict()
 		for item in self.graph:

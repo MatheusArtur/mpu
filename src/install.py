@@ -16,9 +16,10 @@
 
 from pathlib import Path
 import os, errno, sys, glob
-import networkx as nx
+from Graph import Graph
 
-dependency_graph=nx.DiGraph()
+dep_graph = Graph([], True)
+initial_vertex = ""
 
 home = str(Path.home())
 manifest_path = str(str(home)+"/.mpu/manifests/")
@@ -29,6 +30,7 @@ dependency_list = []
 # class PackagesInstallation:
 
 def install_packages(user_input):
+	global initial_vertex
 
 	if os.path.exists(str(manifest_path)) == False:
 		sys.exit("You should first update MPU - use 'main.py update'")
@@ -42,17 +44,17 @@ def install_packages(user_input):
 		dependency_list_file.write("")
 
 		similarity = [os.path.basename(x) for x in glob.glob(manifest_path+package+'-[0-9]*')]
+		if initial_vertex == "":
+			initial_vertex = similarity
 
 		for match in similarity:
 			dependency_checks(match, package, "")
 
 	# print(dependency_graph.nodes())
+	print(dep_graph.topological_sort(initial_vertex[0]))
 
-	adj_matrix = nx.adjacency_matrix(dependency_graph)
-	adj_matrix = adj_matrix.todense()
-
-	with open(dependency_list_path+"dependency_list_matrix-"+str(package)+".txt", "w") as file:
-		file.write(str(adj_matrix))
+	# with open(dependency_list_path+"dependency_list_matrix-"+str(package)+".txt", "w") as file:
+	# 	file.write(str(adj_matrix))
 
 	# print(adj_matrix.todense())
 
@@ -67,7 +69,7 @@ def dependency_checks(package, user_input, parent):
 		with open(dependency_list_path+"dependency_list-"+str(user_input)+".txt", "a") as file:
 			if not parent == "":
 				file.write(parent+", "+str(package)+"\n")
-				dependency_graph.add_edge(str(parent), str(package))
+				dep_graph.add(str(parent), str(package))
 
 		# print()
 		# print("Checking dependencies of > "+ str(package))
