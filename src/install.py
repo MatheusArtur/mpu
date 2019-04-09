@@ -16,7 +16,9 @@
 
 from pathlib import Path
 import os, errno, sys, glob
+import networkx as nx
 
+dependency_graph=nx.DiGraph()
 
 home = str(Path.home())
 manifest_path = str(str(home)+"/.mpu/manifests/")
@@ -42,20 +44,33 @@ def install_packages(user_input):
 		similarity = [os.path.basename(x) for x in glob.glob(manifest_path+package+'-[0-9]*')]
 
 		for match in similarity:
-			dependency_checks(match, package)
+			dependency_checks(match, package, "")
+
+	# print(dependency_graph.nodes())
+
+	adj_matrix = nx.adjacency_matrix(dependency_graph)
+	adj_matrix = adj_matrix.todense()
+
+	with open(dependency_list_path+"dependency_list_matrix-"+str(package)+".txt", "w") as file:
+		file.write(str(adj_matrix))
+
+	# print(adj_matrix.todense())
 
 
 
 
-def dependency_checks(package, user_input):
+
+def dependency_checks(package, user_input, parent):
 
 	if not package in dependency_list:
 		dependency_list.append(package)
 		with open(dependency_list_path+"dependency_list-"+str(user_input)+".txt", "a") as file:
-			file.write(str(package)+"\n")
+			if not parent == "":
+				file.write(parent+", "+str(package)+"\n")
+				dependency_graph.add_edge(str(parent), str(package))
 
-		print()
-		print("Checking dependencies of > "+ str(package))
+		# print()
+		# print("Checking dependencies of > "+ str(package))
 
 		if os.path.isfile(manifest_path+package) == True:
 			# sys.exit("The manifest "+package+" doesn't exist.")
@@ -65,8 +80,8 @@ def dependency_checks(package, user_input):
 
 				while line:
 					dependency = line.strip()
-					print("- {}".format(dependency))
-					dependency_checks(str(dependency+'.mpu'), user_input)
+					# print("- {}".format(dependency))
+					dependency_checks(str(dependency+'.mpu'), user_input, package)
 					line = file.readline()
 
 				file.close()
