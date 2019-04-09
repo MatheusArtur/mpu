@@ -22,11 +22,11 @@ pack_path= str(home)+"/.mpu/packages/"
 mpu_repository="https://gitlab.com/mpu-pkg-manager/mpu-packages/raw/master/"
 
 def unpack():
-    os.system("unpack-tarball.sh")
+    os.system("./unpack-tarball.sh")
 
 def download(packages):
     for pack in packages:
-        os.system("wget " +str(mpu_repository)+str(pack))
+        os.system("wget " +str(mpu_repository)+str(pack[:len(pack)-4])+".tbz2")
 
     os.system("mv *.tbz2 "+ str(pack_path))
     unpack()

@@ -17,6 +17,7 @@
 from pathlib import Path
 import os, errno, sys, glob
 from Graph import Graph
+import get_package
 
 dep_graph = Graph([], True)
 initial_vertex = ""
@@ -44,15 +45,16 @@ def install_packages(user_input):
 		dependency_list_file.write("")
 
 		similarity = [os.path.basename(x) for x in glob.glob(manifest_path+package+'-[0-9]*')]
+
 		if initial_vertex == "":
-			initial_vertex = similarity
+			initial_vertex = similarity[0]
 
 		for match in similarity:
 			dependency_checks(match, package, "")
 
 	# print(dependency_graph.nodes())
-	print(dep_graph.topological_sort(initial_vertex[0]))
-
+	install_candidates = dep_graph.topological_sort(initial_vertex)
+	get_package.download(install_candidates)
 	# with open(dependency_list_path+"dependency_list_matrix-"+str(package)+".txt", "w") as file:
 	# 	file.write(str(adj_matrix))
 
