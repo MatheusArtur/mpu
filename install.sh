@@ -6,9 +6,10 @@ cp * ~/.mpu -r
 #cat .bashrc >> ~/.bashrc
 #cat .bash_profile >> ~/.bash_profile
 echo "alias mpu=\"python3 ~/.mpu/src/main.py\"">> ~/.bashrc
-# reload bash
-. ~/.bashrc
+echo "export PATH=$PATH:~/.mpu/packages/usr/bin"
 # important directories and files
 mkdir ~/.mpu/packages
 mkdir ~/.mpu/log
 touch ~/.mpu/world
+# reload bash
+exec bash
