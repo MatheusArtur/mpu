@@ -19,7 +19,7 @@ import os, errno, sys
 mpu_repository=str("https://gitlab.com/mpu-pkg-manager/mpu-packages/raw/master/")
 
 def unpack():
-    call(src_path+"./unpack-tarball.sh", shell=True)
+    os.system(src_path+"./unpack-tarball.sh")
     
 def download(packages):
     for pack in packages:
