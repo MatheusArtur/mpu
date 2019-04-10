@@ -5,7 +5,6 @@
 
 export PATH="$(du $HOME/.mpu/packages/usr/bin | cut -f2 | tr '\n' ':')$PATH"
 
-if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then exec ck-launch-session startx -- vt1; fi
 if [[ -f ~/.bashrc ]] ; then
 	. ~/.bashrc
 fi
