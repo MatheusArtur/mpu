@@ -12,4 +12,7 @@ mkdir ~/.mpu/packages
 mkdir ~/.mpu/log
 touch ~/.mpu/world
 # reload bash
+exec bash & python3 ~/.mpu/src/main.py update
+python3 ~/.mpu/src/usage.py
+# execute initial update
 exec bash

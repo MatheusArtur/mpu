@@ -1,4 +1,4 @@
-# Network utilities for the MPU-package manager, written by Matheus Artur
+# Update utility for the MPU-package manager, written by Matheus Artur
 
 # This program is free software; you can redistribute it and/or modify it
 # under the terms of the GNU General Public License as published by the
@@ -13,17 +13,13 @@
 # You should have received a copy of the GNU General Public License along
 # with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-from libpath import *
-import os, errno, sys
+from pathlib import Path
 
-mpu_repository=str("https://gitlab.com/mpu-pkg-manager/mpu-packages/raw/master/")
-
-def unpack():
-    call(src_path+"./unpack-tarball.sh", shell=True)
-    
-def download(packages):
-    for pack in packages:
-        os.system("wget " + mpu_repository + str(pack[:-4])+".tbz2")
-
-    os.system("mv *.tbz2 "+ pack_path)
-    unpack()
+home = str(Path.home())
+log_path= str(home+"/.mpu/log/")
+log_file= str(log_path+"update.log")
+manifest_path = str(home+"/.mpu/manifests/")
+#packages_repository = "https://gitlab.com/mpu-pkg-manager/mpu-packages"
+dependency_list_path = str(home+"/.mpu/")
+pack_path= str(home+"/.mpu/packages/")
+src_path= str(home+"/.mpu/src/")

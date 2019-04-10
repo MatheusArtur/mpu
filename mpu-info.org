@@ -1,0 +1,30 @@
+#+OPTIONS: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline
+#+OPTIONS: author:t broken-links:nil c:nil creator:nil
+#+OPTIONS: d:(not "LOGBOOK") date:t e:t email:nil f:t inline:t num:t
+#+OPTIONS: p:nil pri:nil prop:nil stat:t tags:t tasks:t tex:t
+#+OPTIONS: timestamp:t title:t toc:t todo:t |:t
+#+TITLE: MPU - minimal package utility
+#+DATE: <2019-03-26 Tue>
+#+AUTHOR: Matheus Artur
+#+EMAIL: macc@ic.ufal.br
+#+LANGUAGE: en
+#+SELECT_TAGS: export
+#+EXCLUDE_TAGS: noexport
+#+CREATOR: Emacs 26.1 (Org mode 9.1.9)
+
+
+* Install
+  To install just clone the repository and execute the installations script.
+  #+BEGIN_EXAMPLE
+  git clone https://www.github.com/MatheusArtur/mpu.git
+  cd mpu
+  ./install.sh
+  #+END_EXAMPLE
+
+* Info
+  mpu is a simple program that can resolve dependencies and install packages into
+  your system locally (no need for root permissions). It has a simple input format
+  for manifests and packages making it really easy to use for maintaining packages.
+
+** Package hosting
+   Both manifests and packages main repositories are hosted into our organization on [[https://gitlab.com/mpu-pkg-manager/][Gitlab]].

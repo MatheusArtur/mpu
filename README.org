@@ -1,1 +1,1 @@
-pkg-manager.org
+mpu-info.org

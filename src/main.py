@@ -28,7 +28,7 @@ def main(args=None,packages=None):
         # an argument to install.
         # TODO: An upgrade warning for older local-key.
         install_packages(packages)
-        print("Install a package!")
+        print("Packages Installed")
     elif "delete" in args:
         # TODO: Package and local-package removing function.
         print("Safe removal")
@@ -38,7 +38,6 @@ def main(args=None,packages=None):
         print("Clean")
     elif "update" in args:
         sync()
-        print("Update manifests")
     elif "upgrade" in args:
         # TODO: A module to map the system packages oudated and upgrade them
         # to newer version

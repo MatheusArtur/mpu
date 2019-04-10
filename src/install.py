@@ -14,18 +14,13 @@
 # with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 
-from pathlib import Path
+from libpath import *
 import os, errno, sys, glob
 from Graph import Graph
 import get_package
 
 dep_graph = Graph([], True)
 initial_vertex = ""
-
-home = str(Path.home())
-manifest_path = str(str(home)+"/.mpu/manifests/")
-packages_repository = "https://gitlab.com/mpu-pkg-manager/mpu-packages"
-dependency_list_path = str(str(home)+"/.mpu/")
 dependency_list = []
 
 # class PackagesInstallation:
@@ -67,11 +62,9 @@ def install_packages(user_input):
 	# download candidates from repository
 	get_package.download(install_candidates)
 
-	with open(dependency_list_path+"world", "w") as file:
 		# update 'word' file with installed packages for future checks
-		for package in install_candidates:
-			file.write(package[:-4]+'.tbz2\n')
-
+	for package in install_candidates:
+		os.system("echo "+ str(package)+ " >> "+dependency_list_path+"world")
 
 def dependency_checks(package, user_input, parent):
 
