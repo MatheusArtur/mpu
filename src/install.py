@@ -56,7 +56,7 @@ def install_packages(user_input):
 	install_candidates = dep_graph.topological_sort(initial_vertex)
 
 	# consult 'word' file to list installed packages
-	with open(dependency_list_path+"/word", "r") as file:
+	with open(dependency_list_path+"world", "r") as file:
 		installed_packages = file.read().splitlines()
 
 		# remove already installed packages from 'install_candidates'
@@ -67,10 +67,10 @@ def install_packages(user_input):
 	# download candidates from repository
 	get_package.download(install_candidates)
 
-	with open(dependency_list_path+"/word", "w") as file:
+	with open(dependency_list_path+"world", "w") as file:
 		# update 'word' file with installed packages for future checks
 		for package in install_candidates:
-			file.write(package+'\n')
+			file.write(package[:-4]+'.tbz2\n')
 
 
 def dependency_checks(package, user_input, parent):
