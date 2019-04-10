@@ -26,7 +26,7 @@ def unpack():
 
 def download(packages):
     for pack in packages:
-        os.system("wget " +str(mpu_repository)+str(pack[:len(pack)-4])+".tbz2")
+        os.system("wget " +str(mpu_repository)+str(pack[:-4])+".tbz2")
 
     os.system("mv *.tbz2 "+ str(pack_path))
     unpack()

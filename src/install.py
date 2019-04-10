@@ -52,16 +52,25 @@ def install_packages(user_input):
 		for match in similarity:
 			dependency_checks(match, package, "")
 
-	# print(dependency_graph.nodes())
+	# get ordered install list using topological sort
 	install_candidates = dep_graph.topological_sort(initial_vertex)
+
+	# consult 'word' file to list installed packages
+	with open(dependency_list_path+"/word", "r") as file:
+		installed_packages = file.read().splitlines()
+
+		# remove already installed packages from 'install_candidates'
+		for package in installed_packages:
+			if package in install_candidates:
+				install_candidates.remove(package)
+
+	# download candidates from repository
 	get_package.download(install_candidates)
-	# with open(dependency_list_path+"dependency_list_matrix-"+str(package)+".txt", "w") as file:
-	# 	file.write(str(adj_matrix))
 
-	# print(adj_matrix.todense())
-
-
-
+	with open(dependency_list_path+"/word", "w") as file:
+		# update 'word' file with installed packages for future checks
+		for package in install_candidates:
+			file.write(package+'\n')
 
 
 def dependency_checks(package, user_input, parent):

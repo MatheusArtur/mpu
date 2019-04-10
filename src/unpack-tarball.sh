@@ -8,4 +8,4 @@ for tarball in *.tar ; do
     tar -xf "$tarball"
 done
 
-rm *.tar *.tbz2
+rm *.tar
